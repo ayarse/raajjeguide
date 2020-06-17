@@ -67,17 +67,16 @@
         <div class="row">
           <div class="col-lg-8">
 
-
-            @if($listing->attributes->where('name', 'about')->count())
-            <div class="listing-details-section listing-about">
-              <h4>About:</h4>
-              <p>{!! $listing->attributes->where('name', 'about')->first()->value ?? '' !!}</p>
-            </div>
-            @endif
-
             @if($listing->attributes->where('name', 'video')->count())
             <div class="listing-details-section listing-video">
               <div id="video-player" data-plyr-provider="youtube" data-plyr-embed-id="{{ $listing->video->value ?? '' }}"></div>
+            </div>
+            @endif
+            
+            @if($listing->attributes->where('name', 'about')->count())
+            <div class="listing-details-section listing-about">
+              <h4>About</h4>
+              <p>{!! $listing->attributes->where('name', 'about')->first()->value ?? '' !!}</p>
             </div>
             @endif
             {{-- <div class="listing-details-section listing-faq">
