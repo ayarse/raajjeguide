@@ -17,3 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('favorites', function() {
+
+    $favorites = explode(",", request()->cookie('favorites'));
+    $favs = \App\Listing::select('id', 'title', 'phone')->get()->filter(function ($item) use ($favorites) {
+        return in_array($item->id, $favorites);
+    })->values();
+    return response()->json($favs);
+
+})->name('favorites');
