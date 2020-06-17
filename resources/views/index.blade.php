@@ -70,7 +70,7 @@
                       <a href="{{ route('edit', ['id' => $listing->id]) }}" class="preview"><span class="ti-pencil"></span></a>
                       @endauth
                     </div>
-                  <h3 class=""><a href="listing-details.html">{{ $listing->title }}</a></h3>
+                  <h3 class=""><a href="">{{ $listing->title }}</a></h3>
                     <div class="listing-location">
                       <div class="icon">
                         <i class="fas fa-map-marker-alt"></i>
