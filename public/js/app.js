@@ -275,6 +275,12 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! js-cookie */ "./node_modules/js-cookie/src/js.cookie.js");
 /* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(js_cookie__WEBPACK_IMPORTED_MODULE_0__);
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 
 $(document).ready(function () {
   if ($('.cp-map').length) {
@@ -306,30 +312,100 @@ $(document).ready(function () {
         $(this).addClass('active');
       }
     });
+    $('.save > a').each(function (item, index) {
+      var listingid = $(this).data('listingid');
+
+      if (favs.indexOf(listingid.toString()) !== -1) {
+        $(this).find('i').removeClass('far').addClass('fa');
+      }
+    });
   }
 
   $('.favourite').on('click', function (e) {
     e.preventDefault();
-    var favorites = js_cookie__WEBPACK_IMPORTED_MODULE_0___default.a.get('favorites');
     var listingid = $(this).data("listingid");
+
+    if ($(this).hasClass('active')) {
+      removeFavorite(listingid);
+    } else {
+      addFavorite(listingid);
+    }
+
+    $(this).toggleClass('active');
+  });
+  $('.save > a').on('click', function (e) {
+    e.preventDefault();
+    var listingid = $(this).data("listingid");
+
+    if ($(this).find('i').hasClass("fa")) {
+      removeFavorite(listingid);
+      $(this).find('i').removeClass("fa").addClass("far");
+    } else {
+      addFavorite(listingid);
+      $(this).find('i').removeClass("far").addClass("fa");
+    }
+  });
+
+  function loadFavorites() {
+    $.get('/api/favorites', function (data) {
+      var html = '';
+
+      var _iterator = _createForOfIteratorHelper(data),
+          _step;
+
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var item = _step.value;
+          html += "<li class=\"list-group-item\">\n                <a href=\"tel:".concat(item['phone'], "\">").concat(item['title'], "</a>\n                <p><a href=\"tel:").concat(item['phone'], "\"><i class=\"fa fa-phone\"></i> ").concat(item['phone'], "</a></p>\n                </li>");
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+
+      html = '<ul class="list-group">' + html + '</ul>';
+
+      if (data.length < 1) {
+        html = 'No favorites yet. Heart something! ';
+      }
+
+      $("#favoriteParent").html(html);
+    });
+  }
+
+  function addFavorite(id) {
+    var favorites = js_cookie__WEBPACK_IMPORTED_MODULE_0___default.a.get('favorites');
 
     if (!favorites) {
       favorites = '';
     }
 
-    if ($(this).hasClass('active')) {
-      favs = favorites.split(',');
-      favorites = favs.filter(function (v) {
-        return v != listingid;
-      }).toString();
-      console.log(favorites);
-    } else {
-      favorites = favorites + "," + listingid;
+    favorites = favorites + "," + id;
+    js_cookie__WEBPACK_IMPORTED_MODULE_0___default.a.set('favorites', favorites, {
+      path: '/'
+    });
+    loadFavorites();
+  }
+
+  function removeFavorite(id) {
+    var favorites = js_cookie__WEBPACK_IMPORTED_MODULE_0___default.a.get('favorites');
+
+    if (!favorites) {
+      favorites = '';
     }
 
-    js_cookie__WEBPACK_IMPORTED_MODULE_0___default.a.set('favorites', favorites);
-    $(this).toggleClass('active');
-  });
+    favs = favorites.split(',');
+    favorites = favs.filter(function (v) {
+      return v != id;
+    }).toString();
+    js_cookie__WEBPACK_IMPORTED_MODULE_0___default.a.set('favorites', favorites, {
+      path: '/'
+    });
+    loadFavorites();
+  }
+
+  loadFavorites();
 });
 
 /***/ }),
