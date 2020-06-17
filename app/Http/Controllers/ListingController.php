@@ -72,11 +72,13 @@ class ListingController extends Controller
 
         $listing->update($data);
 
-        for ($i = 0; $i < count($request->social_key); $i++) {
-            $listing->attributes()->updateOrCreate(
-                ['name' => $request->social_key[$i]],
-                ['name' => $request->social_key[$i], 'value' => $request->social_value[$i]]
-            );
+        if(!empty($request->social_key)) {
+            for ($i = 0; $i < count($request->social_key); $i++) {
+                $listing->attributes()->updateOrCreate(
+                    ['name' => $request->social_key[$i]],
+                    ['name' => $request->social_key[$i], 'value' => $request->social_value[$i]]
+                );
+            }
         }
 
         $optionalAttributes = ['about', 'website', 'video'];
@@ -129,7 +131,9 @@ class ListingController extends Controller
 
         for($i=0; $i < count($request->social_key); $i++) 
         {
-            $listing->attributes()->create(['name' => $request->social_key[$i], 'value' => $request->social_value[$i] ]);
+            if(!empty($request->social_key[$i])) {
+                $listing->attributes()->create(['name' => $request->social_key[$i], 'value' => $request->social_value[$i]]);
+            }
         }
 
         $optionalAttributes = ['about', 'website', 'video'];
