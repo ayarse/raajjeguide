@@ -3,7 +3,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-body text-center">
-             <img src="{{asset('/images/contact.png')}}" class="img-fluid">
+             <img src="{{asset('/images/contact2.png')}}" class="img-fluid">
           </div>
         </div>
       </div>
