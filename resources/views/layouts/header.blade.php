@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Raajje Guide - Vaguthu Online, Delivery Helper, Coronavirus Guide</title>
+    <title>Vaguthu Delivery Guide - Coronavirus Guide</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
@@ -17,13 +17,13 @@
 
     {{-- <link rel="stylesheet" href="assets/css/owl.carousel.min.css" /> --}}
     {{-- <link rel="stylesheet" href="assets/css/slick.css" /> --}}
-    {{-- <link rel="stylesheet" href="assets/css/plyr.css" /> --}}
+    <link rel="stylesheet" href="{{ asset('assets/css/plyr.css') }}" />
     {{-- <link rel="stylesheet" href="assets/css/jquery.timepicker.min.css" /> --}}
     {{-- <link rel="stylesheet" href="assets/css/jquery.nstSlider.min.css" /> --}}
     {{-- <link rel="stylesheet" href="assets/css/datepicker.min.css" /> --}}
     <link rel="stylesheet" href="{{asset('assets/css/select2.min.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/css/select2-bootstrap.min.css')}}" />
-    <link rel="stylesheet" href="assets/css/wickedpicker.min.css" />
+    <link rel="stylesheet" href="{{asset('assets/css/wickedpicker.min.css')}}" />
 
     <!-- leaflet -->
     <link rel="stylesheet" href="{{asset('assets/leaflet/css/leaflet.css')}}">
@@ -110,7 +110,7 @@
               <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><span class="ti-power-off"></span></a>
             </div>
             <div class="user">
-              <a href="{{ route('add') }}" ><span class="ti-comment"></span></a>
+              <a href="{{ route('add') }}" ><span class="ti-plus"></span></a>
             </div>
               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 {{ csrf_field() }}
