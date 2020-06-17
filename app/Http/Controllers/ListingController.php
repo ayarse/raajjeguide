@@ -51,7 +51,6 @@ class ListingController extends Controller
         $validatedData = $request->validate($this->rules);
         $listing = Listing::find($request->listing_id);
 
-        $social_json = $this->socialJson($request);
 
         $data = [
             'title' => $request->title,
@@ -60,7 +59,7 @@ class ListingController extends Controller
             'address' => $request->address,
             'latitude' => $request->latitude,
             'longitude' => $request->longitude,
-            'social' => $social_json,
+            'social' => null,
         ];
 
         if ($request->hasFile('avatar')) {
@@ -72,6 +71,23 @@ class ListingController extends Controller
         }
 
         $listing->update($data);
+
+        for ($i = 0; $i < count($request->social_key); $i++) {
+            $listing->attributes()->updateOrCreate(
+                ['name' => $request->social_key[$i]],
+                ['name' => $request->social_key[$i], 'value' => $request->social_value[$i]]
+            );
+        }
+
+        $optionalAttributes = ['about', 'website', 'video'];
+        foreach($optionalAttributes as $attr) {
+            if (isset($request->{$attr})) {
+                $listing->attributes()->updateOrCreate(
+                    ['name' => "{$attr}"],
+                    ['name' => "{$attr}", 'value' => $request->{$attr}]
+                );
+            }
+        }
 
         return back();
     }
@@ -95,7 +111,7 @@ class ListingController extends Controller
         }
 
 
-        $social_json = $this->socialJson($request);
+        // $social_json = $this->socialJson($request);
         
         $data = [
             'title'         => $request->title,
@@ -106,27 +122,25 @@ class ListingController extends Controller
             'longitude'     => $request->longitude,
             'avatar'        => $fAvatarName ?? null,
             'cover_pic'     => $fCoverName ?? null,
-            'social'        => $social_json
+            'social'        => null
         ];
 
-        Listing::create($data);
+        $listing = Listing::create($data);
+
+        for($i=0; $i < count($request->social_key); $i++) 
+        {
+            $listing->attributes()->create(['name' => $request->social_key[$i], 'value' => $request->social_value[$i] ]);
+        }
+
+        $optionalAttributes = ['about', 'website', 'video'];
+        foreach ($optionalAttributes as $attr) {
+            if (isset($request->{$attr})) {
+                $listing->attributes()->create(['name' => "{$attr}", 'value' => $request->{$attr}]);
+            }
+        }
 
         return back();
     }
 
-    protected function socialJson(Request $request)
-    {
-        $json = [
-            "socials" => [],
-        ];
-        for ($i = 0; $i < count($request->social_key); $i++) {
-            if (!empty($request->social_value[$i])) {
-                $json["socials"][] = ["key" => $request->social_key[$i], "value" => $request->social_value[$i]];
-            }
-        }
-        if (!empty($request->website)) {
-            $json["socials"][] = ['key' => 'website', 'value' => $request->website];
-        }
-        return json_encode($json);
-    }
+
 }

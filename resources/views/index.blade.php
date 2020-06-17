@@ -70,7 +70,7 @@
                       <a href="{{ route('edit', ['id' => $listing->id]) }}" class="preview"><span class="ti-pencil"></span></a>
                       @endauth
                     </div>
-                  <h3 class=""><a href="">{{ $listing->title }}</a></h3>
+                  <h3 class=""><a href="{{ route('listing', ['id' => $listing->id]) }}">{{ $listing->title }}</a></h3>
                     <div class="listing-location">
                       <div class="icon">
                         <i class="fas fa-map-marker-alt"></i>
@@ -84,10 +84,13 @@
                     <div class="listing-bottom">
                       <span><a href="tel:{{ $listing->phone }}"><i class="fas fa-phone"></i>{{ $listing->phone }}</a></span>
                       <div>
-                      @if($listing->social)
-                        @foreach($listing->social as $social)
-                        <span><a href="{{ $social["value"] }}"><i class="{{ $social["class"] }}"></i></a></span>
+                      @if($listing->socials)
+                        @foreach($listing->socials as $social)
+                        <span><a href="{{ $social->value }}"><i class="{{ $listing->socialClass($social->name) }}"></i></a></span>
                         @endforeach
+                      @endif
+                      @if($listing->website)
+                        <span><a href="{{ $listing->website->value }}"><i class="{{ $listing->socialClass('website') }}"></i></a></span>
                       @endif
                       </div>
                     </div>

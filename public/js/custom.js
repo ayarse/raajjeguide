@@ -158,8 +158,15 @@ $(document).ready(function () {
 
     var formGroup = document.createElement('div');
     formGroup.setAttribute('class', 'form-group');
-    var slct = '<select class="form-control add-social-link"><option value="">Select Network</option><option value="">Facebook</option><option value="">Twitter</option><option value="">Linkedin</option><option value="">Google Plus</option><option value="">Instagram</option><option value="">Pinterest</option><option value="">Reddit</option></select>';
-    var npt = '<input type="text" placeholder="Enter Link" class="form-control social-link-input">';
+    var slct = `
+                          <select class="form-control add-social-link" name="social_key[]">
+                            <option value="">Select Network</option>
+                            <option value="fb">Facebook</option>
+                            <option value="twitter">Twitter</option>
+                            <option value="instagram">Instagram</option>
+                          </select>
+    `;
+    var npt = '<input type="text" placeholder="Enter Link" name="social_value[]" class="form-control social-link-input">';
     var dlt = '<div class="delete"><i class="far fa-trash-alt"></i></div>';
 
     var cln = slct + npt + dlt;

@@ -29,7 +29,7 @@
                       <div class="col-lg-6">
                         <div class="form-group">
                           <label>Listing Title *</label>
-                          <input type="text" value="{{ $listing->title ?? ''}}" name="title" class="form-control" placeholder="Ex: Golden Restuarant">
+                          <input type="text" value="{{ $listing->title ?? old('title')}}" name="title" class="form-control" placeholder="Ex: Golden Restuarant">
                         </div>
                         <div class="form-group">
                           <label>Category *</label>
@@ -41,11 +41,15 @@
                         </div>
                         <div class="form-group">
                           <label>Phone No *</label>
-                          <input type="text" name="phone" class="form-control" placeholder="+9607907173" value="{{ $listing->phone ?? ''}}">
+                          <input type="text" name="phone" class="form-control" placeholder="+9607907173" value="{{ $listing->phone ?? old('phone')}}">
                         </div>
                         <div class="form-group">
                           <label>Website</label>
-                          <input type="text" name="website" class="form-control" placeholder="http://" value="@isset($listing){{ collect($listing->social)->firstWhere('key', 'website')["value"] ?? ''}}@endisset">
+                          <input type="text" name="website" class="form-control" placeholder="http://" value="@isset($listing){{ $listing->attributes->where('name', 'website')->first()->value ?? ''}}@endisset">
+                        </div>
+                        <div class="form-group">
+                          <label>Video</label>
+                          <input type="text" name="video" class="form-control" placeholder="" value="@isset($listing){{ $listing->attributes->where('name', 'video')->first()->value ?? ''}}@endisset">
                         </div>
                       </div>
                       <div class="col-lg-6">
@@ -90,24 +94,30 @@
                       </div>
                     </div>
                     <div class="row">
+                      <div class="col-lg-12">
+                      <div class="form-group">
+                        <label>Description *</label>
+                      <textarea class="form-control description-box" name="about"></textarea>
+                      </div>
+                    </div>
+                    </div>
+                    <div class="row">
                     <div class="col-md-6">
                     <div class="social-networks">
                       <h5>Social Networks</h5>
                       <div class="social-network-block">
 
                           @if(!empty($listing))
-                            @foreach($listing->social as $social)
-                            @if($social["key"] !== "website")
+                            @foreach($listing->socials as $attr)
                             <div class="form-group">
                             <select class="form-control add-social-link" name="social_key[]">
-                            <option value="{{ $social["key"] }}">{{ $social["key"] }}</option>
+                            <option value="{{ $attr->name }}">{{ $attr->name }}</option>
                             </select>
-                            <input type="text" placeholder="Enter Link" value="{{ $social["value"] }}" name="social_value[]" class="form-control social-link-input">
+                            <input type="text" placeholder="Enter Link" value="{{ $attr->value }}" name="social_value[]" class="form-control social-link-input">
                             <div class="delete">
                               <i class="far fa-trash-alt"></i>
                             </div>
                             </div>
-                            @endif
                             @endforeach
                           @else
                           <div class="form-group">

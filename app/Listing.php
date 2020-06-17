@@ -6,49 +6,55 @@ use Illuminate\Database\Eloquent\Model;
 
 class Listing extends Model
 {
-    //
-    // protected $casts = [
-    //     'social' => 'array'
-    // ];
+
     protected $guarded = ['created_at', 'updated_at'];
+
+    public function attributes()
+    {
+        return $this->hasMany('App\Attribute');
+    }
 
     public function category() {
         return $this->belongsTo('App\Category');
     }
 
-    public function getSocialAttribute($value) {
-        if($value) {
-            $socials = json_decode($value, true)["socials"];
-            $newsocial = array();
-            $class = function ($s) {
-                if ($s == "fb") {
-                    return 'fab fa-facebook-f';
-                }
+    public function getSocialsAttribute() {
+        return $this->attributes()
+        ->where(function($query) {
+        $query->where('name', 'twitter')
+                ->orWhere('name', 'instagram')
+                ->orWhere('name', 'fb');
+        })
+        ->get();
 
-                if ($s == "twitter") {
-                    return 'fab fa-twitter';
-                }
-
-                if ($s == "website") {
-                    return 'fa fa-link';
-                }
-
-                if ($s == "instagram") {
-                    return 'fab fa-instagram';
-                }
-
-                return '';
-            };
-            foreach($socials as $social) {                 
-                    $newsocial[] = [
-                        "key" => $social["key"],
-                        "value" => $social["value"],
-                        "class" => $class($social["key"]),
-                    ];
-            }
-            // dd($newsocial);
-            return $newsocial;
-        }
-        return false;
     }
+
+    public function getWebsiteAttribute() {
+        return $this->attributes()->where('name', 'website')->first();
+    }
+
+    public function getVideoAttribute() {
+        return $this->attributes()->where('name', 'video')->first();
+    }
+
+    public function socialClass($value) {
+        switch($value) {
+            case 'fb':
+                return 'fab fa-facebook-f';
+                break;
+            case 'twitter':
+                return 'fab fa-twitter';
+                break;
+            case 'instagram':
+                return 'fab fa-instagram';
+                break;
+            case 'website':
+                return 'fa fa-link';
+                break;
+            default:
+                return 'fa fa-link';
+                break;
+        }
+    }
+
 }
