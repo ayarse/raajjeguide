@@ -14,23 +14,11 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-body text-center">
-             @isset($favorites)
              <div class="row">
-               <div class="col-md-6 col-lg-12">
-              <ul class="list-group">
-              @forelse($favorites as $listing)
-                <li class="list-group-item">
-                  <a href="tel:{{ $listing->phone }}">{{ $listing->title }}</a>
-                  <p><a href="tel:{{ $listing->phone }}"><i class="fa fa-phone"></i> {{ $listing->phone }}</a></p>
-                </li>
-              @empty
-              <p>No favorites. Heart something and refresh!</p>
-              @endforelse
-              </ul>
+               <div class="col-md-6 col-lg-12" id="favoriteParent">
+                <p>No favorites yet. Heart something!</p>
               </div>
               </div>
-              
-              @endisset
           </div>
         </div>
       </div>

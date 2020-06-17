@@ -37,18 +37,7 @@ class HomeController extends Controller
         } else {
             $listings = Listing::orderBy('id', 'DESC')->paginate(20);
         }
-        // dd(request()->cookie('favorites'));
-        $favArray = null;
-        try {
-            $favArray = explode("," , (request()->cookie('favorites')));
-        } catch (\Throwable $e) {
-            $favArray = null;
-        }
-        
-        $favorites = $listings->filter(function($item) use ($favArray) {
-            return in_array($item->id, $favArray);
-        });
-        return view('index', compact('categories', 'listings', 'singleCategory', 'homePage', 'favorites'));
+        return view('index', compact('categories', 'listings', 'singleCategory', 'homePage'));
     }
 
     public function search(Request $request)
