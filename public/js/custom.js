@@ -210,7 +210,31 @@ $(document).ready(function () {
     selectFun();
   });
 
+  if(tinymce !== undefined) {
+    tinymce.init({
+      selector: '.description-box',
+      height: 120,
+      menubar: false,
+      theme: 'modern',
+      mobile: {
+        theme: 'mobile',
+        plugins: ['autosave', 'lists', 'autolink']
+      },
+      plugins: [
+        'advlist autolink lists link image charmap print preview anchor',
+        'searchreplace visualblocks code fullscreen',
+        'insertdatetime media table contextmenu paste code'
+      ],
+      toolbar: 'bold underline italic | bullist numlist | alignleft aligncenter alignright alignjustify | link',
+    });
+  }
+
+
+  const vplyr = new Plyr('#video-player');
+
+
 })
+
 
 $(window).on('load', function () {
   $(".preloader").delay(200).fadeOut();
