@@ -85,9 +85,11 @@ class ListingController extends Controller
         foreach($optionalAttributes as $attr) {
             if (isset($request->{$attr})) {
                 $listing->attributes()->updateOrCreate(
-                    ['name' => "{$attr}"],
-                    ['name' => "{$attr}", 'value' => $request->{$attr}]
+                    ['name' => $attr],
+                    ['name' => $attr, 'value' => $request->{$attr}]
                 );
+            } else {
+                $listing->attributes()->where('name', $attr)->delete();
             }
         }
 
