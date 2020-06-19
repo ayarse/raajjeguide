@@ -58,7 +58,7 @@
               <div class="col-md-6 result-item">
                 <div class="lrn-listing-wrap">
                   <div class="listing-thumb">
-                    <img src="{{ (empty($listing->cover_pic)) ? asset("storage/covers/default.jpg")  : asset($listing->cover_pic)}}" class="img-fluid" alt="">
+                    <img src="{{ (empty($listing->cover_pic)) ? asset("covers/default.jpg")  : asset($listing->cover_pic)}}" class="img-fluid" alt="">
                   </div>
                   <div class="listing-body">
                     <div class="meta">
