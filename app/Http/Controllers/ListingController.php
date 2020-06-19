@@ -6,6 +6,7 @@ use App\Listing;
 use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 class ListingController extends Controller
 {
@@ -64,10 +65,12 @@ class ListingController extends Controller
 
         if ($request->hasFile('avatar')) {
             $data['avatar'] = $request->file('avatar')->store('logos');
+            Storage::delete($listing->avatar);
         }
 
         if ($request->hasFile('cover_pic')) {
             $data['cover_pic'] = $request->file('cover_pic')->store('covers');
+            Storage::delete($listing->cover_pic);
         }
 
         $listing->update($data);
@@ -98,6 +101,8 @@ class ListingController extends Controller
     
     public function delete(Request $request, $id) {
         $listing = Listing::findOrFail($id);
+        Storage::delete($listing->cover_pic);
+        Storage::delete($listing->avatar);
         $listing->delete();
         return redirect('add');
     }
