@@ -42,6 +42,17 @@
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="images/icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="images/icon-114x114.png">
+
+    <meta property="og:title" content="Vaguthu Delivery Guide">
+    <meta property="og:description" content="Your guide to businesses delivering during Covid-19 pandemic.">
+    <meta property="og:image" content="{{ asset('images/delivery_og_image.png') }}">
+    <meta property="og:url" content="https://delivery.vaguthu.mv">
+
+    <meta name="twitter:title" content="Vaguthu Delivery Guide">
+    <meta name="twitter:description" content="Your guide to businesses delivering during Covid-19 pandemic.">
+    <meta name="twitter:image" content="{{ asset('images/delivery_og_image.png') }}">
+    <meta name="twitter:card" content="summary_large_image">
+
     @include('partials.ga')
   </head>
   <body>
