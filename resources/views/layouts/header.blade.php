@@ -47,7 +47,7 @@
     <meta property="og:title" content="{{ $listing->title }} - Vaguthu Delivery Guide">
     <meta property="og:description" content="View {{$listing->title}} contact details on Vaguthu Delivery Guide.">
     <meta property="og:image" content="{{ asset($listing->cover_pic) }}">
-    <meta property="og:url" content="https://delivery.vaguthu.mv">
+    <meta property="og:url" content="{{ Request::url() }}">
   <meta name="twitter:title" content="{{ $listing->title }} - Vaguthu Delivery Guide">
     <meta name="twitter:description" content="View {{$listing->title}} contact details on Vaguthu Delivery Guide.">
     <meta name="twitter:image" content="{{ asset($listing->cover_pic) }}">
