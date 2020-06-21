@@ -210,7 +210,7 @@ $(document).ready(function () {
     selectFun();
   });
 
-  if(tinymce !== undefined) {
+  if (typeof tinymce !== 'undefined') {
     tinymce.init({
       selector: '.description-box',
       height: 120,

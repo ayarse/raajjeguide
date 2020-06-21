@@ -40,7 +40,7 @@
     <script src="{{ asset('assets/leaflet/js/leaflet-src.js') }}"></script>
     <script src="{{ asset('assets/leaflet/js/leaflet.markercluster-src.js') }}"></script>
     <script src="{{ asset('assets/js/plyr.js') }}"></script>
-    <script src="{{ asset('js/custom.js?v=0.2') }}"></script>
+    <script src="{{ asset('js/custom.js?v=0.3') }}"></script>
     <script src="{{ asset('js/searchMap.js') }}"></script>
     @auth
     <script src="{{ asset('assets/js/tinymce.min.js') }}"></script>
