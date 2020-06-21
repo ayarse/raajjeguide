@@ -45,12 +45,12 @@
 
     <meta property="og:title" content="Vaguthu Delivery Guide">
     <meta property="og:description" content="Your guide to businesses delivering during Covid-19 pandemic.">
-    <meta property="og:image" content="{{ asset('images/delivery_og_image01.png') }}">
+    <meta property="og:image" content="{{ asset('images/delivery_og_image02.png') }}">
     <meta property="og:url" content="https://delivery.vaguthu.mv">
 
     <meta name="twitter:title" content="Vaguthu Delivery Guide">
     <meta name="twitter:description" content="Your guide to businesses delivering during Covid-19 pandemic.">
-    <meta name="twitter:image" content="{{ asset('images/delivery_og_image01.png') }}">
+    <meta name="twitter:image" content="{{ asset('images/delivery_og_image02.png') }}">
     <meta name="twitter:card" content="summary_large_image">
 
     @include('partials.ga')
