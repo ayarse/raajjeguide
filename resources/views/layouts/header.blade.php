@@ -43,16 +43,25 @@
     <link rel="apple-touch-icon" sizes="72x72" href="images/icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="images/icon-114x114.png">
 
+    @if(isset($listing))
+    <meta property="og:title" content="{{ $listing->title }} - Vaguthu Delivery Guide">
+    <meta property="og:description" content="View {{$listing->title}} contact details on Vaguthu Delivery Guide.">
+    <meta property="og:image" content="{{ asset($listing->cover_pic) }}">
+    <meta property="og:url" content="https://delivery.vaguthu.mv">
+  <meta name="twitter:title" content="{{ $listing->title }} - Vaguthu Delivery Guide">
+    <meta name="twitter:description" content="View {{$listing->title}} contact details on Vaguthu Delivery Guide.">
+    <meta name="twitter:image" content="{{ asset($listing->cover_pic) }}">
+    <meta name="twitter:card" content="summary_large_image">
+    @else
     <meta property="og:title" content="Vaguthu Delivery Guide">
     <meta property="og:description" content="Your guide to businesses delivering during Covid-19 pandemic.">
     <meta property="og:image" content="{{ asset('images/delivery_og_image02.png') }}">
     <meta property="og:url" content="https://delivery.vaguthu.mv">
-
     <meta name="twitter:title" content="Vaguthu Delivery Guide">
     <meta name="twitter:description" content="Your guide to businesses delivering during Covid-19 pandemic.">
     <meta name="twitter:image" content="{{ asset('images/delivery_og_image02.png') }}">
     <meta name="twitter:card" content="summary_large_image">
-
+    @endif
     @include('partials.ga')
   </head>
   <body>
