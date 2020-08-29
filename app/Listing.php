@@ -24,7 +24,7 @@ class Listing extends Model
         $query->where('name', 'twitter')
                 ->orWhere('name', 'instagram')
                 ->orWhere('name', 'fb');
-        })
+        })->where('value', '!=', '')
         ->get();
 
     }
