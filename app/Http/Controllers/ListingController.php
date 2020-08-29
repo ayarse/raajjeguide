@@ -84,7 +84,7 @@ class ListingController extends Controller
             }
         }
 
-        $optionalAttributes = ['about', 'website', 'video'];
+        $optionalAttributes = ['about', 'website', 'video', 'phone2', 'phone3'];
         foreach($optionalAttributes as $attr) {
             if (isset($request->{$attr})) {
                 $listing->attributes()->updateOrCreate(
@@ -143,7 +143,7 @@ class ListingController extends Controller
             }
         }
 
-        $optionalAttributes = ['about', 'website', 'video'];
+        $optionalAttributes = ['about', 'website', 'video', 'phone2', 'phone3'];
         foreach ($optionalAttributes as $attr) {
             if (isset($request->{$attr})) {
                 $listing->attributes()->create(['name' => "{$attr}", 'value' => $request->{$attr}]);

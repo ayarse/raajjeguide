@@ -37,6 +37,14 @@ class Listing extends Model
         return $this->attributes()->where('name', 'video')->first();
     }
 
+    public function getPhone2Attribute() {
+        return $this->attributes()->where('name', 'phone2')->first();
+    }
+
+    public function getPhone3Attribute() {
+        return $this->attributes()->where('name', 'phone3')->first();
+    }
+
     public function socialClass($value) {
         switch($value) {
             case 'fb':

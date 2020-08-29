@@ -139,6 +139,17 @@
                     </div>
                     </div>
                     </div>
+
+                    <div class="row mt-5">
+                      <div class="col">
+                        <div class="form-group">
+                          <label>Additional Details</label>
+                          <input type="text" name="phone2" class="form-control" placeholder="Phone 2" value="{{ $listing->phone2->value ?? old('phone2')}}">
+                          <input type="text" name="phone3" class="form-control" placeholder="Phone 3" value="{{ $listing->phone3->value ?? old('phone3')}}">
+                        </div>
+                      </div>
+                    </div>
+
                   </div>
 
                 

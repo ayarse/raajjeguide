@@ -260,7 +260,15 @@
                   <ul>
                     
                     <li><span><i class="fas fa-map-marker-alt"></i>Address:</span>{{ $listing->address }}</li>
-                    <li><span><i class="fas fa-phone"></i>Phone:</span>{{ $listing->phone }}</li>
+                    <li>
+                      <span><i class="fas fa-phone"></i>Phone:</span>{{ $listing->phone }}
+                      @if($listing->phone2)
+                      , {{ $listing->phone2->value }}
+                      @endif
+                      @if($listing->phone3)
+                      , {{ $listing->phone3->value }}
+                      @endif
+                    </li>
                     @if($listing->attributes->where('name', 'email')->count())
                     <li><span><i class="far fa-envelope"></i>Mail:</span>{{ $listing->attributes->where('name', 'email')->first()->value ?? '' }}</li>
                     @endif
