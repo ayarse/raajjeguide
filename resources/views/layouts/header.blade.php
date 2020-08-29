@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Vaguthu Delivery Guide - Coronavirus Guide</title>
+    <title>Samugaa by Vaguthu - Find Local Businesses, Delivery Shops, Your Guide to Maldives</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
@@ -44,21 +44,21 @@
     <link rel="apple-touch-icon" sizes="114x114" href="images/icon-114x114.png">
 
     @if(isset($listing))
-    <meta property="og:title" content="{{ $listing->title }} - Vaguthu Delivery Guide">
-    <meta property="og:description" content="View {{$listing->title}} contact details on Vaguthu Delivery Guide.">
+    <meta property="og:title" content="{{ $listing->title }} - Vaguthu Samugaa">
+    <meta property="og:description" content="View {{$listing->title}} contact details on Vaguthu Samugaa.">
     <meta property="og:image" content="{{ asset($listing->cover_pic) }}">
     <meta property="og:url" content="{{ Request::url() }}">
-  <meta name="twitter:title" content="{{ $listing->title }} - Vaguthu Delivery Guide">
-    <meta name="twitter:description" content="View {{$listing->title}} contact details on Vaguthu Delivery Guide.">
+  <meta name="twitter:title" content="{{ $listing->title }} - Vaguthu Samugaa">
+    <meta name="twitter:description" content="View {{$listing->title}} contact details on Vaguthu Samugaa.">
     <meta name="twitter:image" content="{{ asset($listing->cover_pic) }}">
     <meta name="twitter:card" content="summary_large_image">
     @else
-    <meta property="og:title" content="Vaguthu Delivery Guide">
-    <meta property="og:description" content="Your guide to businesses delivering during Covid-19 pandemic.">
+    <meta property="og:title" content="Samugaa by Vaguthu">
+    <meta property="og:description" content="Find Local Businesses, Delivery Shops, Your Guide to Maldives">
     <meta property="og:image" content="{{ asset('images/delivery_og_image02.png') }}">
     <meta property="og:url" content="https://delivery.vaguthu.mv">
-    <meta name="twitter:title" content="Vaguthu Delivery Guide">
-    <meta name="twitter:description" content="Your guide to businesses delivering during Covid-19 pandemic.">
+    <meta name="twitter:title" content="Samugaa by Vaguthu">
+    <meta name="twitter:description" content="Find Local Businesses, Delivery Shops, Your Guide to Maldives">
     <meta name="twitter:image" content="{{ asset('images/delivery_og_image02.png') }}">
     <meta name="twitter:card" content="summary_large_image">
     @endif
@@ -76,7 +76,7 @@
           {{-- <a class="navbar-brand" href="https://vaguthu.mv/?ref=raajjeguide"> --}}
           <a class="navbar-brand" href="{{ route('home') }}">
 
-            <svg width="96px" height="52px" viewBox="0 0 96 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            {{-- <svg width="96px" height="52px" viewBox="0 0 96 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                 <g id="logo" fill="#fff">
                     <path d="M32.48,40.89 C27.06,44.63 21.58,48.33 16.15,52.08 C17.3833333,49.24 18.6,46.4 19.8,43.56 C24.1999528,43.9821921 28.6239105,43.050649 32.48,40.89" id="Path"></path>
@@ -95,7 +95,9 @@
                     <polygon id="Path" points="95.08 40.45 93.33 47 92.1 47 90.34 40.48 91.54 40.48 92.1 42.48 92.71 45.53 93.32 42.46 93.88 40.46"></polygon>
                 </g>
             </g>
-        </svg>
+        </svg> --}}
+
+      <img src="{{ asset('images/samugaa_logo.svg') }}" width="100" alt="">
 
           </a>
           {{-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

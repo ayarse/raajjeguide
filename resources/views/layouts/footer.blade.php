@@ -26,7 +26,7 @@
             </g>
         </svg>
                 </div>
-                <p class="copyright-text">&copy; {{date('Y')}} <a href="https://vaguthu.mv/?ref=delivery">Vaguthu.mv</a>. All Rights Reserved</p>
+                <p class="copyright-text">&copy; {{date('Y')}} <a href="https://vaguthu.mv/?ref=samugaa">Vaguthu.mv</a>. All Rights Reserved</p>
               </div>
             </div>
           </div>
