@@ -33,8 +33,8 @@
     <link rel="stylesheet" href="{{asset('assets/leaflet/css/MarkerCluster.Default.css')}}">
 
     <!-- Custom Css --> 
-    <link rel="stylesheet" type="text/css" href="{{asset('css/main.css?v=0.4.2')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/app.css?v=0.4.2')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/main.css?v=0.4.3')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/app.css?v=0.4.3')}}">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,500%7CSignika:400,600,700" rel="stylesheet">
