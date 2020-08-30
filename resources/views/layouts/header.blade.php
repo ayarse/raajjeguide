@@ -60,11 +60,11 @@
     @else
     <meta property="og:title" content="Samugaa by Vaguthu">
     <meta property="og:description" content="Find Local Businesses, Delivery Shops, Your Guide to Maldives">
-    <meta property="og:image" content="{{ asset('images/delivery_og_image02.png') }}">
+    <meta property="og:image" content="{{ asset('images/delivery_og_image03.png') }}">
     <meta property="og:url" content="https://delivery.vaguthu.mv">
     <meta name="twitter:title" content="Samugaa by Vaguthu">
     <meta name="twitter:description" content="Find Local Businesses, Delivery Shops, Your Guide to Maldives">
-    <meta name="twitter:image" content="{{ asset('images/delivery_og_image02.png') }}">
+    <meta name="twitter:image" content="{{ asset('images/delivery_og_image03.png') }}">
     <meta name="twitter:card" content="summary_large_image">
     @endif
     @include('partials.ga')
