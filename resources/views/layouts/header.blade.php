@@ -4,9 +4,11 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    @if(isset($listing))
+    <title>{{$listing->title}} | Samugaa by Vaguthu - Find Local Businesses, Delivery Shops, Your Guide to Maldives</title>
+    @else
     <title>Samugaa by Vaguthu - Find Local Businesses, Delivery Shops, Your Guide to Maldives</title>
-
+    @endif
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
 
