@@ -40,10 +40,13 @@
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,500%7CSignika:400,600,700" rel="stylesheet">
 
     <!-- Favicon -->
-    <link rel="icon" href="images/favicon.png">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#d30000">
+    <meta name="msapplication-TileColor" content="#b91d47">
+    <meta name="theme-color" content="#ffffff">
 
     @if(isset($listing))
     <meta property="og:title" content="{{ $listing->title }} - Vaguthu Samugaa">
