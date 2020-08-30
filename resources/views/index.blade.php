@@ -58,11 +58,11 @@
               <div class="col-md-6 result-item">
                 <div class="lrn-listing-wrap">
                   <div class="listing-thumb">
-                    <img src="{{ (empty($listing->cover_pic)) ? asset("covers/default.jpg")  : asset($listing->cover_pic)}}" class="img-fluid" alt="">
+                    <a href="{{ route('listing', ['id' => $listing->id]) }}"><img src="{{ (empty($listing->cover_pic)) ? asset("covers/default.jpg")  : asset($listing->cover_pic)}}" class="img-fluid" alt=""></a>
                   </div>
                   <div class="listing-body">
                     <div class="meta">
-                      <a href="#" class="avater">
+                      <a href="{{ route('listing', ['id' => $listing->id]) }}" class="avater">
                         <img src="{{ asset($listing->avatar) }}" class="img-fluid" alt="">
                       </a>
                       <a href="#" class="favourite" data-listingid="{{ $listing->id }}"><span class="ti-heart"></span></a>
