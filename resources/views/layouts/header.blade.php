@@ -63,6 +63,7 @@
     <meta property="og:image" content="{{ asset('images/delivery_og_image03.png') }}">
     <meta property="og:url" content="https://samugaa.vaguthu.mv">
     <meta property="og:type" content="website">
+    <meta property="fb:app_id" content="1494290047491333">
     <meta name="twitter:title" content="Samugaa by Vaguthu">
     <meta name="twitter:description" content="Find Local Businesses, Delivery Shops, Your Guide to Maldives">
     <meta name="twitter:image" content="{{ asset('images/delivery_og_image03.png') }}">
