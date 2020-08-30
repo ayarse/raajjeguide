@@ -269,23 +269,23 @@
                       , {{ $listing->phone3->value }}
                       @endif
                     </li>
-                    @if($listing->attributes->where('name', 'email')->count())
-                    <li><span><i class="far fa-envelope"></i>Mail:</span>{{ $listing->attributes->where('name', 'email')->first()->value ?? '' }}</li>
+                    @if($listing->email)
+                    <li><span><i class="far fa-envelope"></i>Mail:</span>{{ $listing->email ?? '' }}</li>
                     @endif
-                    @if($listing->attributes->where('name', 'website')->count())
-                    <li><span><i class="fas fa-globe"></i>Website:</span><a href="#">{{ $listing->attributes->where('name', 'website')->first()->value ?? '' }}</a></li>
+                    @if($listing->website)
+                    <li><span><i class="fas fa-globe"></i>Website:</span><a href="#">{{ $listing->website ?? '' }}</a></li>
                     @endif
                   </ul>
                 </div>
                 <div class="widget-social-icon">
-                  @if($listing->attributes->where('name', 'fb')->count())
-                    <a href="{{ $listing->attributes->where('name', 'fb')->first()->value ?? '' }}"><i class="fab fa-facebook-f"></i></a>
+                  @if($listing->facebook)
+                    <a href="{{ $listing->facebook ?? '' }}"><i class="fab fa-facebook-f"></i></a>
                   @endif
-                  @if($listing->attributes->where('name', 'twitter')->count())
-                  <a href="{{ $listing->attributes->where('name', 'twitter')->first()->value ?? '' }}"><i class="fab fa-twitter"></i></a>
+                  @if($listing->twitter)
+                  <a href="{{ $listing->twitter ?? '' }}"><i class="fab fa-twitter"></i></a>
                   @endif
-                  @if($listing->attributes->where('name', 'instagram')->count())
-                  <a href="{{ $listing->attributes->where('name', 'instagram')->first()->value ?? '' }}"><i class="fab fa-instagram"></i></a>
+                  @if($listing->instagram)
+                  <a href="{{ $listing->instagram ?? '' }}"><i class="fab fa-instagram"></i></a>
                   @endif
                 </div>
               </div>              

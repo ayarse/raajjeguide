@@ -30,7 +30,23 @@ class Listing extends Model
     }
 
     public function getWebsiteAttribute() {
-        return $this->attributes()->where('name', 'website')->first();
+        return $this->attributes()->where('name', 'website')->first()->value ?? null;
+    }
+
+    public function getEmailAttribute() {
+        return $this->attributes()->where('name', 'email')->first()->value ?? null;
+    }
+
+    public function getFacebookAttribute() {
+        return $this->attributes()->where('name', 'fb')->first()->value ?? null;
+    }
+
+    public function getInstagramAttribute() {
+        return $this->attributes()->where('name', 'instagram')->first()->value ?? null;
+    }
+
+    public function getTwitterAttribute() {
+        return $this->attributes()->where('name', 'twitter')->first()->value ?? null;
     }
 
     public function getVideoAttribute() {

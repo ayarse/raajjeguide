@@ -90,7 +90,7 @@
                         @endforeach
                       @endif
                       @if($listing->website)
-                        <span><a href="{{ $listing->website->value }}"><i class="{{ $listing->socialClass('website') }}"></i></a></span>
+                        <span><a href="{{ $listing->website }}"><i class="{{ $listing->socialClass('website') }}"></i></a></span>
                       @endif
                       </div>
                     </div>
