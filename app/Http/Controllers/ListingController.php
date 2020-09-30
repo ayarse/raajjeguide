@@ -19,7 +19,7 @@ class ListingController extends Controller
             "latitude" => "numeric",
             "longitude" => "numeric",
             "avatar" => 'image|dimensions:min_width=100,min_height=100',
-            "cover_pic" => 'image|dimensions:min_width=550,min_height=297',
+            "cover_pic" => 'image',
     ];
 
     public function __construct()
